@@ -78,6 +78,6 @@ export class Director {
 
     start() {
         const controller = this.getController(this.step);
-        controller.enter();
+        controller.enter(this.dataObject);
     }
 }
