@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<style>
+    .step {
+        border: 1px solid;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    .step--disabled {
+        border-color: #c7c7c7;
+        color: #c7c7c7;
+    }
+</style>
+<body>
+    <div id="step1" class="step">
+        <form>
+            <label>Name: <input type="text" name="name" /></label>
+            <button type="button" class="btn-primary">Save</button>
+        </form>
+    </div>
+    <div id="step2" class="step step--disabled">
+        <form>
+            <p>
+                <label id="label-welcome">Welcome <span class="value"></span></label>
+            </p>
+            <p>
+                <label>Phone number: <input type="text" name="phone"/></label>
+            </p>
+            <button type="button" class="btn-primary">Save</button>
+        </form>
+    </div>
+    <div id="step3" class="step step--disabled">
+        <form>
+            <p>
+                <label>Welcome <span class="name-value"></span></label>
+            </p>
+            <p>
+                <label>Phone number: <input type="text" disabled name="phone"/></label>
+            </p>
+            <button type="button" class="btn-primary">Save</button>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
