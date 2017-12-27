@@ -31,7 +31,13 @@ module: {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env'],
+                        babelrc: false,
+                        presets: [
+                            ['env', {
+                                targets: ...
+                                modules: false 
+                            }] 
+                       ],
                         plugins: ['transform-helper']
                     }
                 }
@@ -46,6 +52,8 @@ With this configuration we are instructing webpack to:
 - Use the babel loader.
 - We pass some options to babel:
     - Use `env` preset. Babel itself has plugins, and a preset is a predefined list of plugins.
+    - We disable `module` importing purposely, this tells babel not to transform our ES6 modules to CommonJs modules. 
+      We don’t want babel to compile them to CommonJs because webpack understand ES6 imports/exports which is what allows it to do tree-shaking and reduce even more final file size.
     - We want to also use `transform-helper` plugin, which helps to reduce final file size. 
       When Babel transforms ES2015 to ES5 code, it inlines some helper functions in every file processed. This can result in helper functions being repeated along different files, increasing the final size. This plugin puts all required helper methods in their own file and then they are referenced using `
       imports`.
