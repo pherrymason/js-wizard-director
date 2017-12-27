@@ -16,3 +16,17 @@ export class ThirdStepController extends StepController {
         console.log('exit step 3');
     }
 }
+
+/**
+ * This class should be remove by tree-shaking
+ */
+export class Unused {
+    constructor() {
+        this.hola = true;
+    }
+
+    work() {
+        // do some stuff
+        return this.hola + '('+3+')';
+    }
+}

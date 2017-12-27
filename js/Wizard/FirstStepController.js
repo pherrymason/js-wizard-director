@@ -1,5 +1,5 @@
 import {StepController} from './StepController';
-var $ = require('jquery');
+const $ = require('jquery');
 
 export class FirstStepController extends StepController {
     enter(dataObject) {
