@@ -5,7 +5,8 @@ module.exports = {
     entry: './js/page.wizard.js',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'main.js'
+        filename: 'main.js',
+        pathinfo: true
     },
     module: {
         rules: [
@@ -15,8 +16,19 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env'],
-                        plugins: ['transform-runtime']
+                        babelrc: false,
+                        presets: [
+                            [
+                                'env',
+                                {
+                                    targets: {
+                                        "browsers": ["last 2 versions", "safari >= 7"]
+                                    },
+                                    modules: false
+                                }
+                            ]
+                        ],
+                        plugins: ['transform-helper']
                     }
                 }
             }
